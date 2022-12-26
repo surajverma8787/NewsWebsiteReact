@@ -8,9 +8,6 @@ const App = () => {
 
   return (
     <>
-      <div>
-        Welcome to News Website
-      </div>
       <Search />
       <Pagination />
       <Stories />

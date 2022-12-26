@@ -30,7 +30,7 @@ const AppProvider = ({ children }) => {
         type: "GET_STORIES",
         payload: {
           hits: data.hits,
-          //nbPages: data.nbPages
+          nbPages: data.nbPages
         }
       });
     } catch (error) {
@@ -54,12 +54,24 @@ const AppProvider = ({ children }) => {
     )
   }
 
+  const getNextPage = () => {
+    dispatch({
+      type: "Next_Page"
+    })
+  }
+
+  const getPrevPage = () => {
+    dispatch({
+      type: "Prev_Page"
+    })
+  }
+
   useEffect(() => {
     fetchApiData(`${Api}query=${state.query}&page=${state.pages}`);
-  }, [state.query, state.pages]) 
+  }, [state.query, state.pages])
 
   return (
-    <AppContext.Provider value={{ ...state, removePost, searchPost }}>
+    <AppContext.Provider value={{ ...state, removePost, searchPost, getNextPage, getPrevPage }}>
       {children}
     </AppContext.Provider>
   )
