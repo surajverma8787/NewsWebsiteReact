@@ -23,7 +23,7 @@ const Stories = () => {
                             </p>
                             <div className='card-button'>
                                 <a href={url} target="_blank">Read More...</a>
-                                <a href="#" onClick={() => removePost(objectID)}>Remove</a>
+                                <a onClick={() => removePost(objectID)}>Remove</a>
                             </div>
                         </div>
                     )
