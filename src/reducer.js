@@ -1,10 +1,16 @@
 const reducer = (state, action) => {
     switch (action.type) {
+        case "Search_Post":
+            return {
+                ...state,
+                query: action.payload
+
+            }
         case "Remove_Post":
             return {
                 ...state,
                 hits: state.hits.filter((currElement) =>
-                    currElement.objectId != action.payload)
+                    currElement.objectId !== action.payload)
             }
         case "SET_LOADING":
             return {
